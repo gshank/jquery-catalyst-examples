@@ -1,0 +1,21 @@
+<div id ="dictionary">
+</div>
+<div class="letters">
+ <div class="letter" id="letter-a">
+   <h3>A</h3>
+   <div class="button">Load</div>
+ </div>
+ <div class="letter" id="letter-b">
+   <h3>B</h3>
+   <div class="button">Load</div>
+ </div>
+ <div class="letter" id="letter-c">
+   <h3>C</h3>
+   <div class="button">Load</div>
+ </div>
+ <div class="letter" id="letter-d">
+   <h3>D</h3>
+  <div class="button">Load</div>
+</div>
+
+

@@ -1,0 +1,4 @@
+<h1>Learning jQuery</h1>
+<p>by Jonathan Chaffer & Karl Swedberg</p>
+
+<p><a href="[% c.uri_for('dict1') %]">First example</a></p>

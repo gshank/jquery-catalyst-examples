@@ -1,0 +1,29 @@
+<form action="" id="orderForm">
+ <div id="detailFormContainer">
+   <h1>Choose your boots</h1>
+   <div id="cascadingDropdowns">
+
+      <div>
+        <label>Please choose a style:</label><br />
+        <select id="styleDropdown">
+          <option value="">Please choose a boot style</option>
+          [% FOREACH boot IN boots %]
+          <option value="[% boot.id %]">[% boot.name %]</option>
+          [% END %]
+        </select>
+      </div>
+
+      <div>
+         <label>Color:</label><br/>
+         <select id="colorDropdown" disabled="disabled"></select>
+      </div>
+
+      <div>
+         <label>Size:</label><br/>
+         <select id="sizeDropdown" disabled="disabled"></select>
+      </div>
+
+    </div>
+    <div id="detailsDisplay"></div>
+  </div>
+</form>

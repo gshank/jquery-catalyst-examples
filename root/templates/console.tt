@@ -1,0 +1,21 @@
+<fieldset>
+   <legend>Initiate Ajax Requests</legend>
+   <div>
+     <button type="button" id="goodButton">
+       Initiate successful request
+     </button>
+     <button type="button" id="badButton">
+       Initiate failed request
+     </button>
+   </div>
+</fieldset>
+
+<fieldset>
+   <legend>Success display</legend>
+   <div id="successDisplay"></div>
+</fieldset>
+
+<fieldset>
+   <legend>Error display</legend>
+   <div id="errorDisplay"></div>
+</fieldset>

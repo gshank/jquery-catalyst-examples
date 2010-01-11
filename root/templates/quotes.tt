@@ -1,0 +1,4 @@
+<div id="wrapper">
+  <div id="quote"><p> </p></div>
+  <input type="submit" id="generate" value="Generate!">
+</div> 

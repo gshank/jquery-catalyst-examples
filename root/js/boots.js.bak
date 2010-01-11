@@ -1,0 +1,112 @@
+
+// Idiom used to define jQuery plugins in a portable way
+// which guarantees that within this block, "$" refers to jQuery
+// (function($){
+(function($) {
+   // Create a jQuery "command" (plugin) to empty the select list
+  $.fn.emptySelect = function() {
+    // "this" is the matched set
+    return this.each(function(){
+      // "this" is the individual element
+      if (this.tagName=='SELECT') this.options.length = 0;
+    });
+  }
+
+  // Create a jQuery "command" to load a select list
+  $.fn.loadSelect = function(optionsDataArray) {
+    return this.emptySelect().each(function(){
+      debugger;
+      if (this.tagName=='SELECT') {
+        // create variable for "this" to allow access
+        // in "each" loop, which has a different "this"
+        var selectElement = this;
+        // this "each" is the utility "each", not the core "each"
+        $.each(optionsDataArray,function(index,optionData){
+          var option = new Option(optionData.caption,
+                                  optionData.value);
+          if ($.browser.msie) {
+            selectElement.add(option);
+          }
+          else {
+            selectElement.add(option,null);
+          }
+        });
+      }
+    });
+  }
+})(jQuery);
+
+
+// This is the "onready" handler (short for: "$(document).ready(function(){"  )
+$(function(){
+   $('#styleDropdown')
+   .change(function(){
+      var styleValue = $(this).val();
+      $('#detailsDisplay').load(
+         '/boots/get_details',
+         { style: styleValue }
+      );
+      // Trigger state adjustment of color dropdown
+      adjustColorDropdown();
+   })
+   // When the document is ready, show details if item selected
+   .change();
+   // Bind change listener to color dropdown
+   $('#colorDropdown')
+      .change(adjustSizeDropdown);
+});
+
+// Function to adjust Color select list
+function adjustColorDropdown(){
+   // Store style of boot selected
+   var styleValue = $('#styleDropdown').val();
+   // Get wrapped set of color dropdown
+   var dropdownSet = $('#colorDropdown');
+   // enable or disable color dropdown
+   if (styleValue.length == 0) {
+      dropdownSet.attr("disabled",true);
+      // Empty disabled dropdown
+      $(dropdownSet).emptySelect();
+      // Empty dependent dropdown
+      $('#sizeDropdown').emptySelect();
+      // adjustSizeDropdown();
+   }
+   else {
+      dropdownSet.attr("disabled",false);
+      // get colors from server based on style
+      $.getJSON(
+         '/boots/get_colors',
+         { style: styleValue },
+         function(json){
+            console.log(json);
+            alert("In the get_colors handler"); 
+            debugger;
+            // $(dropdownSet).loadSelect(json);
+            $('#colorDropdown').loadSelect(json);
+            // Trigger adjustment of dependent dropdown
+            adjustSizeDropdown();
+         }
+      );
+   }
+}
+
+// Function to adjust Size select list
+function adjustSizeDropdown(){
+   var styleValue = $('#styleDropdown').val();
+   var colorValue = $('#colorDropdown').val();
+   var dropdownSet = $('#sizeDropdown');
+   if ((styleValue.length == 0) || (colorValue.length == 0)) {
+      dropdownSet.attr("disabled",true);
+      $(dropdownSet).emptySelect();
+   } else {
+      dropdownSet.attr("disabled",false);
+      $.getJSON (
+          '/boots/get_sizes',
+          {style:styleValue, color:colorValue},
+          function(data){ 
+             $(dropdownSet).loadSelect(data);
+          }
+      );
+   }
+}
+

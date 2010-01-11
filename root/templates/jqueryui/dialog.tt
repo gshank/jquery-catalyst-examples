@@ -1,0 +1,26 @@
+<a class="confirm_delete" href="/jqueryui/do_delete">Delete it!</a>
+<div style="display: none;" id="dialog" title="Confirmation Required">
+  Are you sure you want to delete your submission?
+</div>
+
+<script type="text/javascript"> 
+  $(document).ready(function() {
+  $(".confirm_delete").click( function(e){
+    e.preventDefault();
+    var targetUrl = $(this).attr("href");
+    $("#dialog").dialog({
+      autoOpen: false,
+      modal: true,
+      buttons : {
+        "Confirm" : function() {
+          window.location.href = targetUrl;
+        },
+        "Cancel" : function() {
+          $(this).dialog("close");
+        }
+      }
+    });
+    $("#dialog").dialog("open");
+  });
+});
+</script>

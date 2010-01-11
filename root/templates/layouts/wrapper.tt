@@ -1,0 +1,8 @@
+[% IF nowrapper;
+      content;
+   ELSIF boots;
+      content WRAPPER layouts/boots_layout.tt;
+   ELSE;
+      content WRAPPER layouts/layout.tt;
+   END;
+-%]

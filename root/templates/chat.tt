@@ -1,0 +1,9 @@
+<div id="chatwrapper">
+<p id="messagewindow"><span id="loading">Loading...</span></p>
+
+<form id="chatform">
+Name: <input type="text" id="author" /><br/>
+Message: <input type="text" id="msg" />
+<input type="submit" value="ok" /><br />
+</form>
+</div>

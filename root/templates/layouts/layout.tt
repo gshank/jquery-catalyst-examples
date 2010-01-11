@@ -1,0 +1,21 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhmtl1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhmtl">
+<head>
+   <title>Using jQuery in Catalyst</title>
+   [% IF css %]
+   <link rel="stylesheet" type="text/css" href="[% c.uri_for('/css', css) %]">
+   [% END %]
+   <script src="[% c.uri_for('/js/jquery.js') %]"></script>
+   [% IF javascript %]
+   <script src="[% c.uri_for('/js', javascript) %]"></script>
+   [% END %]
+</head>
+
+<body>
+<div id="site">
+
+[% content %]
+
+</div>
+</body>
+</html>

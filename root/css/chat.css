@@ -1,0 +1,21 @@
+#wrapper {
+   width: 240px;
+   height: 80px;
+   margin: auto;
+   padding: 10px;
+   margin-top: 10px;
+   border: 1px solid black;
+   text-align: center;
+}
+
+#messagewindow {
+   height: 250px;
+   border: 1px solid;
+   padding: 5px;
+   overflow: auto;
+}
+
+#chatwrapper {
+   margin: auto;
+   width: 438px;
+}

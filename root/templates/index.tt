@@ -1,0 +1,7 @@
+<h1>Various jQuery techniques, particularly Ajax</h1>
+
+<p><a href="[% c.uri_for( 'quotes' ) %]">Quotes: a simple load function (from Akash Mehta)</a></p>
+<p><a href="[% c.uri_for( 'chat', 'form' ) %]">Chat: using post function (from Akash Mehta)</a></p>
+<p><a href="[% c.uri_for( 'ajia' ) %]">The BootCloset (from "jQuery In Action")</a></p>
+<p><a href="[% c.uri_for( 'jqueryui' ) %]">jQuery UI examples</a><p>
+ 
